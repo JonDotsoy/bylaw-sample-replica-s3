@@ -4,6 +4,6 @@ export interface Policy {
         Effect: 'Allow';
         Action: string[];
         Resource: string[];
-        Condition?: (token: any) => boolean,
+        Condition?: (token: any) => Promise<boolean>,
     }[];
 }

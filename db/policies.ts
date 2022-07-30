@@ -50,7 +50,10 @@ export const DBSessionUpdateProfile: Policy = {
             Effect: 'Allow',
             Action: ['db:PutEntry'],
             Resource: ['*'],
-            Condition: (token) => token.userId === token.resourceData.ownerId,
+            Condition: async (token) => {
+                const resourceData = await token.getResourceData();
+                return token.userId === resourceData.ownerId;
+            },
         }
     ]
 }
