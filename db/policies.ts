@@ -51,6 +51,7 @@ export const DBSessionUpdateProfile: Policy = {
             Action: ['db:PutEntry'],
             Resource: ['*'],
             Condition: async (token) => {
+                if (!token.getResourceData) return false;
                 const resourceData = await token.getResourceData();
                 return token.userId === resourceData.ownerId;
             },

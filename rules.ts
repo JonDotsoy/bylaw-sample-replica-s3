@@ -7,13 +7,7 @@ import { users } from "./db/users";
 import { Role } from "./db/types/role";
 import { Group } from "./db/types/group";
 import { User } from "./db/types/user";
-
-interface Token {
-    userId: string
-    resource: string,
-    policies: Policy[],
-    getResourceData?: () => any,
-}
+import { Token } from "./types/token";
 
 const memorize = <R, A extends Array<any>>(cb: (...args: A) => R, ...args: A) => {
     let memory: R;
