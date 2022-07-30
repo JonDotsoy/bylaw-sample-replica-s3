@@ -1,11 +1,3 @@
-import * as policies from "./policies";
-import * as roles from "./roles";
-import * as groups from "./groups";
+import { User } from "./types/user";
 
-
-export interface User {
-    policies: policies.Policy[],
-    roles: roles.Role[],
-    groups: groups.Group[],
-}
-
+export const users: Record<string, User> = {}
